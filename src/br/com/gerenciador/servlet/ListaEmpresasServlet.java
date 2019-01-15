@@ -1,9 +1,9 @@
 package br.com.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,18 +24,11 @@ public class ListaEmpresasServlet extends HttpServlet {
 		List<Empresa> empresas = banco.getEmpresas();
 	
 		
-		PrintWriter out = response.getWriter();
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("listaEmpresas.jsp");
+		request.setAttribute("listaEmpresas", empresas);
+		requestDispatcher.forward(request, response);
 		
-		out.println("<html>");
-		out.println("<body>");
-		out.println("<ul>");
-		for(Empresa empresa:empresas) {
-			out.println("<li>" + empresa.getNome()+ " </li>");
-		}
-		out.println("</ul>");
-		out.println("</body>");
-		out.println("</html>");
-		
+		System.out.println("lista enviada");
 	}
 
 }

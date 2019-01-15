@@ -1,11 +1,13 @@
+<%@page import="br.com.gerenciador.modelo.Empresa"%>
 <%
- String nomeEmpresa = "Alura";
- System.out.println(nomeEmpresa);
-%>>
+	Empresa empresa = (Empresa) request.getAttribute("empresa");
+%>
 
 
 <html>
-	<body>
-	Empresa <%= nomeEmpresa %> criada com sucesso
-	</body>
+<body>
+	Empresa
+	<%=empresa.getNome()%>
+	criada com sucesso
+</body>
 </html>
