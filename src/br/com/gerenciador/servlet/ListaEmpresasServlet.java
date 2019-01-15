@@ -28,6 +28,7 @@ public class ListaEmpresasServlet extends HttpServlet {
 		request.setAttribute("listaEmpresas", empresas);
 		requestDispatcher.forward(request, response);
 		
+		System.out.println("lista enviada");
 	}
 
 }
