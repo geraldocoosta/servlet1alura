@@ -1,16 +1,15 @@
 package br.com.gerenciador.modelo;
 
+import java.util.Date;
+
 public class Empresa {
 
 	private String nome;
 	private Integer id;
+	private Date dataCriacao = new Date();
 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -19,6 +18,18 @@ public class Empresa {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

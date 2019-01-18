@@ -1,6 +1,9 @@
 package br.com.gerenciador.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,8 +26,21 @@ public class NovaEmpresaServlet extends HttpServlet {
 		System.out.println("Cadastrando nova empresa");
 		
 		String nomeEmpresa = request.getParameter("nome");
+		String dataCriacao = request.getParameter("data");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date dateParse = null;
+		try {
+			dateParse = sdf.parse(dataCriacao);
+		} catch (ParseException e) {
+			throw new ServletException("Data não conseguiu ser parseada", e);
+		}
+		
+		
+		
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
+		empresa.setDataCriacao(dateParse);
 		
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
