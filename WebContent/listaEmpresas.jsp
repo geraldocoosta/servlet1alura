@@ -13,7 +13,10 @@
 <body>
 	<ul>
 		<c:forEach items="${listaEmpresas }" var="empresa">
-			<li>${empresa.nome } - <fmt:formatDate value="${empresa.dataCriacao }" pattern="dd/MM/yyyy"/> </li>
+			<li>${empresa.nome } - <fmt:formatDate value="${empresa.dataCriacao }" pattern="dd/MM/yyyy"/>
+			<a href="<c:url value="removeEmpresa?id=${empresa.id }" />"> remover</a>  
+			<a href="<c:url value="mostraEmpresa?id=${empresa.id }" />"> edita</a>  
+			 </li>
 		</c:forEach>
 
 	</ul>
