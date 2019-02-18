@@ -1,0 +1,1 @@
+<a href="entrada?action=Logout">Sair</a>

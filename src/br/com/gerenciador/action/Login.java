@@ -3,6 +3,7 @@ package br.com.gerenciador.action;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.gerenciador.modelo.Banco;
 import br.com.gerenciador.modelo.Usuario;
@@ -19,6 +20,8 @@ public class Login implements Action {
 		Usuario user = banco.confereCredenciais(login, senha);
 
 		if (user != null) {
+			HttpSession session = req.getSession();
+			session.setAttribute("usuario", user);
 			return "redirect:ListaEmpresa";
 		} else {
 			return "redirect:FormLogin";
