@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/entrada?action=AlteraEmpresa" var="linkAlteraEmpresa" />
+<c:url value="/entrada" var="linkAlteraEmpresa" />
 <fmt:formatDate value="${empresa.dataCriacao }" pattern="dd/MM/yyyy"
 	var="dataFormatada" />
 <!DOCTYPE html>
