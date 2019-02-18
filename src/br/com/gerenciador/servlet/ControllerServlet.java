@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.gerenciador.action.Action;
 
-@WebServlet("/")
+@WebServlet("/entrada")
 public class ControllerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -233398019875504162L;

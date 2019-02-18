@@ -10,10 +10,10 @@
 <body>
 
 	<form action="${linkNovaEmpresa }" method="post">
-		Nome: <input type="text" name="nome" />
-		Data Abertura: <input type="text" name="data" /> 
+		Login: <input type="text" name="login" />
+		Senha: <input type="password" name="senha" /> 
 		
-		<input type="hidden" name="action" value="NovaEmpresa" />
+		<input type="hidden" name="action" value="Login" />
 		<input type="submit" value="VAI CAVALO" />
 	</form>
 
