@@ -1,6 +1,7 @@
 package br.com.gerenciador.servlet;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,17 +21,15 @@ public class ControllerServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		HttpServletRequest request = (HttpServletRequest) req;
-		HttpServletResponse response = (HttpServletResponse) resp;
 		String action = req.getParameter("action");
 
 		String redirecionamento = null;
 		try {
 			Class<?> forName = Class.forName("br.com.gerenciador.action." + action);
-			Action acaoImpl = (Action) forName.newInstance();
+			Action acaoImpl = (Action) forName.getConstructor().newInstance();
 			redirecionamento = acaoImpl.executa(req, resp);
 		} catch (ClassNotFoundException | SecurityException | InstantiationException | IllegalAccessException
-				| IllegalArgumentException e) {
+				| IllegalArgumentException | InvocationTargetException | NoSuchMethodException e) {
 			throw new ServletException(e);
 		}
 
